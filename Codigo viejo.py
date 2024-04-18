@@ -43,3 +43,22 @@ intersect_grid = gpd.overlay(grid, bound_grid, how='intersection')
 
 # Obtenemos los vecinos mas cercanos de cada celda
 grid = get_nearest_neighbors(gdf_obs=intersect_grid, gdf_cand=gdf, k_neighbors=knn)
+
+legend_elements = [Line2D([0], [0], marker='s', color='w', label='0-10', markerfacecolor='#FF4500', markersize=10),
+                   Line2D([0], [0], marker='s', color='w', label='10-15', markerfacecolor='#FFA500', markersize=10),
+                   Line2D([0], [0], marker='s', color='w', label='15-20', markerfacecolor='#FFFF00', markersize=10),
+                   Line2D([0], [0], marker='s', color='w', label='20-25', markerfacecolor='#7FFF00', markersize=10),
+                   Line2D([0], [0], marker='s', color='w', label='25-30', markerfacecolor='#00FF00', markersize=10)]
+
+from shapely.geometry import Polygon
+
+# Define la función para crear un polígono cuadrado alrededor de un punto
+def pointtopoly(punto,res=10):
+    x, y = punto.x, punto.y
+    return Polygon([(x-res/2, y-res/2), (x+res/2, y-res/2), (x+res/2, y+res/2), (x-res/2, y+res/2)])
+
+# Crea una lista de polígonos cuadrados alrededor de cada punto de la grilla de puntos
+grid_poligonos = [pointtopoly(punto) for punto in predictions['geometry']]
+
+# Crea un nuevo GeoDataFrame con los polígonos y las predicciones asociadas a cada punto
+grid_predicciones = gpd.GeoDataFrame({'geometry': grid_poligonos, 'pred': predictions['pred']})

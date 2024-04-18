@@ -1,0 +1,16 @@
+{
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "notebook.lineNumbers": "on",
+    "editor.parameterHints.enabled": true,
+    "colorize.colorized_colors": [
+        "ARGB",
+        "HEXA",
+        "BROWSERS_COLORS",
+        "HEXA",
+        "RGB",
+        "HSL"
+    ]
+}
