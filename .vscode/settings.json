@@ -1,16 +1,21 @@
 {
+    "terminal.integrated.inheritEnv": false,
+    "notebook.lineNumbers": "on",
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "right"
     },
-    "notebook.lineNumbers": "on",
-    "editor.parameterHints.enabled": true,
+    "git.confirmSync": false,
+    "colorize.hide_current_line_decorations": false,
     "colorize.colorized_colors": [
         "ARGB",
-        "HEXA",
         "BROWSERS_COLORS",
         "HEXA",
         "RGB",
         "HSL"
-    ]
+    ],
+    "colorize.colorized_variables": [
+        "CSS"
+    ],
+    "python.terminal.activateEnvironment": true
 }

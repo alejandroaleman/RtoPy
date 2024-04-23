@@ -62,3 +62,13 @@ grid_poligonos = [pointtopoly(punto) for punto in predictions['geometry']]
 
 # Crea un nuevo GeoDataFrame con los polígonos y las predicciones asociadas a cada punto
 grid_predicciones = gpd.GeoDataFrame({'geometry': grid_poligonos, 'pred': predictions['pred']})
+
+colors = [
+    '#1E902D',
+    '#3CB371',
+    '#7FFF00',
+    '#FFD700',
+    '#FFA500',
+    '#FF4500',
+    '#FF0000'
+]
